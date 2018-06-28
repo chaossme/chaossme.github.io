@@ -1,0 +1,25 @@
+{
+  "name": "chaossme.github.io",
+  "version": "1.0.0",
+  "description": "my personal website",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "production": "node-sass -i ./assets/style.sass ./public/style.css",
+    "sass:watch": "node-sass -i ./assets/style.sass ./public/style.css -w assets",
+    "dev": "concurrently \"serve\" \"npm run sass:watch\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chaossme/chaossme.github.io.git"
+  },
+  "author": "chaossme",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/chaossme/chaossme.github.io/issues"
+  },
+  "homepage": "https://github.com/chaossme/chaossme.github.io#readme",
+  "devDependencies": {
+    "node-sass": "^4.9.0"
+  }
+}
