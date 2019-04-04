@@ -1,0 +1,57 @@
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>IsicCounter</title>
+  <link rel="manifest" href="manifest.json">
+  <script>if (window.localStorage.getItem("value") === null) {window.localStorage.setItem("value", 0);}</script>
+  <style type="text/css">
+    * {user-select: none;}
+    body {
+      font-family: Helvetica;
+      margin: 0;
+      color: white;
+      font-size: 6vw;
+    }
+    .wrap {
+      display: flex;
+      flex-flow: row nowrap;
+      width: fit-content;
+      margin: 0 auto;
+      height: 100vh;
+    }
+    .button {
+      cursor: pointer;
+      background-color: #64FFDA;
+      border-radius: 100%;
+      width: 25vw;
+      height: 25vw;
+      line-height: 25vw;
+      text-align: center;
+      align-self: center;
+    }
+    #value {
+      cursor: pointer;
+      background-color: #00BFA5;
+      border-radius: 100%;
+      width: 35vw;
+      height: 35vw;
+      line-height: 35vw;
+      text-align: center;
+      align-self: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div style="margin-right: 5vw" class='button' onClick="increment(-0.05);update();">-0.05</div>
+    <span id="value" contenteditable="true"></span>
+    <div style="margin-left: 5vw" class='button' onClick="increment(+0.05);update();">+0.05</div>
+  </div>
+  <script>
+    update();
+    function update() {document.getElementById("value").innerText = Number(window.localStorage.getItem("value")).toFixed(2)}
+    function increment(by) {window.localStorage.setItem('value', Math.round((parseFloat(window.localStorage.getItem('value')) + by) * 100) / 100);}
+    document.getElementById("value").addEventListener("input", function(a) {if(new RegExp(('^[0-9]*\.[0-9]?[0-9]?$')).test(a.srcElement.outerText)){window.localStorage.setItem('value', a.srcElement.outerText)}}, false);
+  </script>
+</body>
+</html>
