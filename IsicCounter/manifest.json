@@ -24,7 +24,7 @@
       "type": "image/png"
     }
   ],
-  "start_url": "/index.html",
+  "start_url": "/IsicCounter/index.html",
   "display": "standalone",
   "background_color": "#00BFA5",
   "theme_color": "#64FFDA"
